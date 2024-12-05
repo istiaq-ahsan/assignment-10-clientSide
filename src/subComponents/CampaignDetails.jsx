@@ -2,13 +2,13 @@ import { useLoaderData } from "react-router-dom";
 
 const CampaignDetails = () => {
     const projectDetails = useLoaderData();
-    const { _id, name, email, title, type, amount, description, date } = projectDetails;
+    const { _id, name, email, title, photo, type, amount, description, date } = projectDetails;
     return (
         <div className="w-4/5 mx-auto">
             <div className="card lg:card-side bg-base-100 shadow-xl">
                 <figure>
                     <img
-                        src="https://img.daisyui.com/images/stock/photo-1494232410401-ad00d5433cfa.webp"
+                        src={photo}
                         alt="Album" />
                 </figure>
                 <div className="card-body">
@@ -20,7 +20,7 @@ const CampaignDetails = () => {
                     <h3>{amount}</h3>
                     <p>{description}</p>
                     <div className="card-actions justify-end">
-                        <button className="btn btn-neutral">Listen</button>
+                        <button className="btn btn-neutral">Donate</button>
                     </div>
                 </div>
             </div>

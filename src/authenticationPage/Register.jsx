@@ -1,12 +1,13 @@
 import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import Swal from "sweetalert2";
 
 const Register = () => {
 
-    const { createNewUser, setUser } = useContext(AuthContext)
+    const { createNewUser, setUser, updateUserData } = useContext(AuthContext)
+    const navigate = useNavigate();
 
     const [error, setError] = useState(null);
     const [showPassword, setShowPassword] = useState(false);
@@ -28,8 +29,14 @@ const Register = () => {
 
         createNewUser(email, password)
             .then(result => {
-                // const user = result.user;
-                // setUser(user);
+
+                const user = result.user;
+                console.log(user);
+                setUser(user);
+
+                updateUserData({ displayName: name, photoURL: photo })
+
+
                 const newUser = { name, email }
                 fetch("http://localhost:5000/users", {
                     method: 'POST',
@@ -38,16 +45,18 @@ const Register = () => {
                     },
                     body: JSON.stringify(newUser)
                 })
-                    .then(res => res.json)
+                    .then(res => res.json())
                     .then(data => {
-                        console.log(data);
-                        if (data.insertId) {
+                        console.log(data)
+                        if (data.insertedId) {
                             Swal.fire({
                                 title: 'Success!',
-                                text: 'Coffee added successfully',
+                                text: 'Sign Up Successfully',
                                 icon: 'success',
                                 confirmButtonText: 'Ok'
                             });
+                            navigate("/")
+
                         }
                     })
             })

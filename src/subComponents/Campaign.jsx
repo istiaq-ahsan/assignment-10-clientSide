@@ -10,7 +10,7 @@ const Campaign = ({ project }) => {
             <td>{type}</td>
             <td>{amount}</td>
             <td>{date}</td>
-            <td><Link to={`/campaignDetails/${_id}`} className="btn">Details</Link></td>
+            <td><Link to={`/campaignDetails/${_id}`} className="btn">See More</Link></td>
 
         </tr>
     );
