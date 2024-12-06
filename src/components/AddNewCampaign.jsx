@@ -33,7 +33,7 @@ const AddNewCampaign = () => {
                     console.log('successfully added');
                     Swal.fire({
                         title: 'Success!',
-                        text: 'Coffee added successfully',
+                        text: 'Project added successfully',
                         icon: 'success',
                         confirmButtonText: 'Ok'
                     });

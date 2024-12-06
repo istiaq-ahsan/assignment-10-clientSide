@@ -9,6 +9,7 @@ import CampaignDetails from "../subComponents/CampaignDetails";
 import Login from "../authenticationPage/Login";
 import Register from "../authenticationPage/Register";
 import PrivateRouter from "./PrivateRouter";
+import UpdateCampaign from "../components/UpdateCampaign";
 
 const Router = createBrowserRouter([
     {
@@ -44,6 +45,13 @@ const Router = createBrowserRouter([
                 path: "campaignDetails/:id",
                 element: <PrivateRouter>
                     <CampaignDetails></CampaignDetails>,
+                </PrivateRouter>,
+                loader: ({ params }) => fetch(`http://localhost:5000/project/${params.id}`)
+            },
+            {
+                path: "updateCoffee/:id",
+                element: <PrivateRouter>
+                    <UpdateCampaign></UpdateCampaign>
                 </PrivateRouter>,
                 loader: ({ params }) => fetch(`http://localhost:5000/project/${params.id}`)
             },

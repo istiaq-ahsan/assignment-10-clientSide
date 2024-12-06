@@ -10,6 +10,9 @@ const AuthProvider = ({ children }) => {
 
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [allProject, setAllProject] = useState();
+
+
 
     const createNewUser = (email, password) => {
         setLoading(true);
@@ -38,7 +41,8 @@ const AuthProvider = ({ children }) => {
         loading,
         setLoading,
         logout,
-        updateUserData
+        updateUserData,
+        setAllProject
 
     }
 
@@ -56,6 +60,7 @@ const AuthProvider = ({ children }) => {
         <div>
             <AuthContext.Provider value={authInfo}>
                 {children}
+
             </AuthContext.Provider>
         </div>
     );

@@ -1,8 +1,15 @@
 import { useLoaderData } from "react-router-dom";
 import Campaign from "../subComponents/Campaign";
+import { useContext } from "react";
+import { AuthContext } from "../provider/AuthProvider";
 
 const AllCampaign = () => {
+
+    // ----------
+    const { setAllProject } = useContext(AuthContext);
     const loadedAllProject = useLoaderData();
+
+    setAllProject(loadedAllProject);
     return (
         <div>
             <table className="table w-11/12 mx-auto border-collapse bg-white shadow-lg">
