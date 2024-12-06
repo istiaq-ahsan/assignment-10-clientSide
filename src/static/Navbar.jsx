@@ -52,11 +52,10 @@ const Navbar = () => {
                     {
                         user && user?.email ? (
                             <div className="flex items-center gap-3">
-                                <p className="font-semibold">User : {user?.displayName}</p>
                                 <img className="w-10 h-10 rounded-full" src={user?.photoURL} alt="" />
                             </div>
                         ) : (
-                            <FaUserCircle className="text-4xl" />
+                            <NavLink to="/register" className="btn">Sign Up</NavLink>
 
                         )
                     }

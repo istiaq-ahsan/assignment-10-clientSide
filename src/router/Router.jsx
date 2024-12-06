@@ -1,6 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "../static/Layout";
-import HomePage from "../Home/HomePage";
 import AllCampaign from "../components/AllCampaign";
 import MyCampaign from "../components/MyCampaign";
 import AddNewCampaign from "../components/AddNewCampaign";
@@ -10,6 +9,7 @@ import Login from "../authenticationPage/Login";
 import Register from "../authenticationPage/Register";
 import PrivateRouter from "./PrivateRouter";
 import UpdateCampaign from "../components/UpdateCampaign";
+import Home from "../components/Home";
 
 const Router = createBrowserRouter([
     {
@@ -18,7 +18,7 @@ const Router = createBrowserRouter([
         children: [
             {
                 path: "/",
-                element: <HomePage></HomePage>
+                element: <Home></Home>
             },
             {
                 path: "allCampaign",
@@ -39,7 +39,9 @@ const Router = createBrowserRouter([
             },
             {
                 path: "myDonation",
-                element: <MyDonation></MyDonation>,
+                element: <PrivateRouter>
+                    <MyDonation></MyDonation>,
+                </PrivateRouter>
             },
             {
                 path: "campaignDetails/:id",

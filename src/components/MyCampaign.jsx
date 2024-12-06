@@ -23,29 +23,33 @@ const MyCampaign = () => {
     }, [user])
 
     return (
-        <table className="table w-11/12 mx-auto border-collapse bg-white shadow-lg">
-            <thead className="bg-gray-700 text-white">
-                <tr className="text-center">
-                    <th className="px-4 py-3 text-sm font-semibold">Title</th>
-                    <th className="px-4 py-3 text-sm font-semibold">Type</th>
-                    <th className="px-4 py-3 text-sm font-semibold">Amount</th>
-                    <th className="px-4 py-3 text-sm font-semibold">Date</th>
-                    <th className="px-4 py-3 text-sm font-semibold">View</th>
-                    <th className="px-4 py-3 text-sm font-semibold">Update</th>
-                    <th className="px-4 py-3 text-sm font-semibold">Delete</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
+        <div className="py-20 mx-3">
+            <div className="overflow-x-auto">
+                <table className="table w-11/12 mx-auto border-collapse bg-white shadow-lg">
+                    <thead className="bg-gray-700 text-white">
+                        <tr className="text-center">
+                            <th className="px-4 py-3 text-sm font-semibold">Title</th>
+                            <th className="px-4 py-3 text-sm font-semibold">Type</th>
+                            <th className="px-4 py-3 text-sm font-semibold">Amount</th>
+                            <th className="px-4 py-3 text-sm font-semibold">Date</th>
+                            <th className="px-4 py-3 text-sm font-semibold">View</th>
+                            <th className="px-4 py-3 text-sm font-semibold">Update</th>
+                            <th className="px-4 py-3 text-sm font-semibold">Delete</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
 
-                {
-                    campaigns.map(campaign => <MyCampaignTable key={campaign._id}
-                        campaign={campaign}
-                    ></MyCampaignTable>)
-                }
+                        {
+                            campaigns.map(campaign => <MyCampaignTable key={campaign._id}
+                                campaign={campaign}
+                            ></MyCampaignTable>)
+                        }
 
-            </tbody>
-        </table>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     );
 };
 

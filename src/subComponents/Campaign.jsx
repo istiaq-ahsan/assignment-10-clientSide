@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const Campaign = ({ project }) => {
     const { _id, name, email, title, type, amount, description, date } = project;
     return (
-        <tr>
+        <tr className="text-center">
             <td>{name}</td>
             <td>{email}</td>
             <td>{title}</td>
