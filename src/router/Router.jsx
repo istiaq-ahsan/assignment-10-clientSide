@@ -10,6 +10,7 @@ import Register from "../authenticationPage/Register";
 import PrivateRouter from "./PrivateRouter";
 import UpdateCampaign from "../components/UpdateCampaign";
 import Home from "../components/Home";
+import Error from "../static/Error";
 
 const Router = createBrowserRouter([
     {
@@ -66,6 +67,10 @@ const Router = createBrowserRouter([
                 element: <Register></Register>
             },
         ]
+    },
+    {
+        path: "*",
+        element: <Error></Error>
     },
 ])
 
