@@ -42,7 +42,8 @@ const AuthProvider = ({ children }) => {
         setLoading,
         logout,
         updateUserData,
-        setAllProject
+        setAllProject,
+        allProject
 
     }
 

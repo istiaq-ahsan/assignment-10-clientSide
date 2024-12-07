@@ -4,10 +4,10 @@ const CampaignDetails = () => {
     const projectDetails = useLoaderData();
     const { _id, name, email, title, photo, type, amount, description, date } = projectDetails;
     return (
-        <div className="py-20">
+        <div className="bg-gray-200 py-20">
             <div className=" w-11/12 md:w-4/5 mx-auto">
                 <div className="card md:card-side bg-base-100 items-center justify-center
-                shadow-xl border border-gray-500 p-5 md:p-10">
+                shadow-xl p-5 md:p-10">
                     <div className="w-full md:w-[40%] flex items-center justify-center">
                         <img
                             src={photo}

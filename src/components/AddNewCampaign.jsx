@@ -1,9 +1,13 @@
+import { useContext } from "react";
 import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Swal from 'sweetalert2'
+import { AuthContext } from "../provider/AuthProvider";
 
 
 const AddNewCampaign = () => {
+
+    const { user } = useContext(AuthContext);
 
     const handleAddProject = e => {
         e.preventDefault();
@@ -43,17 +47,19 @@ const AddNewCampaign = () => {
     }
 
     return (
-        <div className="bg-base-200 w-11/12 mx-auto grid grid-cols-5">
+        <div className="bg-gray-200 py-20">
+            <div className="w-11/12 md:w-4/5 mx-auto">
 
-            <div className="col-span-2">
+                <div className="text-center text-gray-900">
+                    <h1 className="text-5xl font-bold">Start a New Campaign</h1>
+                    <p className="text-base my-5">Create your crowdfunding campaign and share your vision with the world. Provide essential details to help backers understand and support your project or cause.</p>
 
-            </div>
-            <div className='my-20 col-span-3'>
-
+                </div>
                 <div className="card bg-base-100 w-full shrink-0 shadow-2xl">
+
                     <form onSubmit={handleAddProject} className="card-body">
 
-                        <div className="grid grid-cols-2 gap-5">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
 
                             <div className="form-control flex-1">
                                 <label className="label">
@@ -69,8 +75,8 @@ const AddNewCampaign = () => {
                                 <label className="label">
                                     <span className="label-text">User Email</span>
                                 </label>
-                                <input type="text" name='email' placeholder="email "
-                                    className="input input-bordered" required />
+                                <input type="text" name='email' placeholder="email " defaultValue={user.email}
+                                    className="input input-bordered" readOnly required />
                             </div>
 
                             {/* ------------------------------------ */}

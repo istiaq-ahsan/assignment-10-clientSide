@@ -24,12 +24,15 @@ const MyDonation = () => {
     }, [user])
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {
-                donations.map(donation => <MyDonatedCard key={donation._id}
-                    donation={donation}
-                ></MyDonatedCard>)
-            }
+        <div className="bg-gray-200">
+            <div className="w-4/5 mx-auto py-20 grid grid-cols-1 
+            md:grid-cols-2 lg:grid-cols-3 gap-3">
+                {
+                    donations.map(donation => <MyDonatedCard key={donation._id}
+                        donation={donation}
+                    ></MyDonatedCard>)
+                }
+            </div>
         </div>
     );
 };

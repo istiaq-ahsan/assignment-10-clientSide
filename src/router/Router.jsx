@@ -28,25 +28,25 @@ const Router = createBrowserRouter([
             {
                 path: "myCampaign",
                 element: <PrivateRouter>
-                    <MyCampaign></MyCampaign>,
+                    <MyCampaign></MyCampaign>
                 </PrivateRouter>
             },
             {
                 path: "addNewCampaign",
                 element: <PrivateRouter>
-                    <AddNewCampaign></AddNewCampaign>,
+                    <AddNewCampaign></AddNewCampaign>
                 </PrivateRouter>
             },
             {
                 path: "myDonation",
                 element: <PrivateRouter>
-                    <MyDonation></MyDonation>,
+                    <MyDonation></MyDonation>
                 </PrivateRouter>
             },
             {
                 path: "campaignDetails/:id",
                 element: <PrivateRouter>
-                    <CampaignDetails></CampaignDetails>,
+                    <CampaignDetails></CampaignDetails>
                 </PrivateRouter>,
                 loader: ({ params }) => fetch(`http://localhost:5000/project/${params.id}`)
             },
@@ -59,12 +59,12 @@ const Router = createBrowserRouter([
             },
             {
                 path: "login",
-                element: <Login></Login>,
+                element: <Login></Login>
             },
             {
                 path: "register",
-                element: <Register></Register>,
-            }
+                element: <Register></Register>
+            },
         ]
     },
 ])

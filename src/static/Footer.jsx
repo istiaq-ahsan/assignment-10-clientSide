@@ -2,7 +2,7 @@ import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 const Footer = () => {
     return (
-        <div className="footer bg-gray-800 text-white p-10 grid grid-cols-1 md:grid-cols-6 justify-around">
+        <div className="footer bg-gray-900 text-white p-10 grid grid-cols-1 md:grid-cols-6 justify-around">
             <div className="md:col-span-2">
 
                 <h2 className="text-4xl font-rancho">Crowdcube</h2>

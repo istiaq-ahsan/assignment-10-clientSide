@@ -11,33 +11,35 @@ const AllCampaign = () => {
 
     setAllProject(loadedAllProject);
     return (
-        <div className="py-20 mx-3">
-            <div className="overflow-x-auto w-full">
-                <table className="table w-11/12 mx-auto border-collapse bg-white shadow-lg">
-                    <thead className="bg-gray-700 text-white text-center">
-                        <tr>
-                            <th className="px-4 py-3 text-sm font-semibold">Name</th>
-                            <th className="px-4 py-3 text-sm font-semibold">Email</th>
-                            <th className="px-4 py-3 text-sm font-semibold">Title</th>
-                            <th className="px-4 py-3 text-sm font-semibold">Type</th>
-                            <th className="px-4 py-3 text-sm font-semibold">Amount</th>
-                            <th className="px-4 py-3 text-sm font-semibold">Date</th>
-                            <th className="px-4 py-3 text-sm font-semibold">View</th>
+        <div className="bg-gray-200">
+            <div className="py-20 mx-3">
+                <div className="overflow-x-auto w-full">
+                    <table className="table w-11/12 mx-auto border-collapse bg-white shadow-lg">
+                        <thead className="bg-gray-700 text-white text-center">
+                            <tr>
+                                <th className="px-4 py-3 text-sm font-semibold">Name</th>
+                                <th className="px-4 py-3 text-sm font-semibold">Email</th>
+                                <th className="px-4 py-3 text-sm font-semibold">Title</th>
+                                <th className="px-4 py-3 text-sm font-semibold">Type</th>
+                                <th className="px-4 py-3 text-sm font-semibold">Amount</th>
+                                <th className="px-4 py-3 text-sm font-semibold">Deadline</th>
+                                <th className="px-4 py-3 text-sm font-semibold">View</th>
 
-                        </tr>
-                    </thead>
-                    <tbody>
+                            </tr>
+                        </thead>
+                        <tbody>
 
-                        {
-                            loadedAllProject.map(project => <Campaign key={project._id}
-                                project={project}
-                            ></Campaign>)
-                        }
+                            {
+                                loadedAllProject.map(project => <Campaign key={project._id}
+                                    project={project}
+                                ></Campaign>)
+                            }
 
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+                </div>
+
             </div>
-
         </div>
     );
 };

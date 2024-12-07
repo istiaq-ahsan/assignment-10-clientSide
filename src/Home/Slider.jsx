@@ -1,7 +1,7 @@
 
 const Slider = () => {
     return (
-        <div className=" bg-stone-500 flex justify-center pt-20">
+        <div className=" bg-gray-200 flex justify-center pt-20">
             <div className="carousel w-11/12 mx-auto">
                 <div
                     id="item1"

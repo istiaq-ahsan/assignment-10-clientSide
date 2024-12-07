@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 const Banner = () => {
     return (
@@ -16,7 +17,11 @@ const Banner = () => {
                 <hr className="mt-1 mx-5" />
                 <h1 className="text-5xl md:text-7xl font-bold py-5">Crowdfunding <br /> Platforms</h1>
                 <div className="my-5">
-                    <button className="text-lg md:text-xl text-black bg-green-400 rounded-none py-3 px-5 md:py-5 md:px-7">START A PROJECT</button>
+                    <Link to="/addNewCampaign"><button className="text-lg md:text-xl text-black
+                     bg-green-400 rounded-none py-3 px-5 md:py-5 md:px-7 hover:bg-gray-500 hover:text-white">
+                        START A PROJECT
+                    </button>
+                    </Link>
                 </div>
             </div>
         </div>
