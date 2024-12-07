@@ -65,8 +65,8 @@ const AddNewCampaign = () => {
                                 <label className="label">
                                     <span className="label-text">User Name</span>
                                 </label>
-                                <input type="text" name='name' placeholder="name "
-                                    className="input input-bordered" required />
+                                <input type="text" name='name' placeholder="name " defaultValue={user.displayName}
+                                    className="input input-bordered" readOnly required />
                             </div>
 
                             {/* ------------------------------------ */}

@@ -23,7 +23,7 @@ const RunningProjectCard = ({ singleCampaign }) => {
                     <h2 className="md:font-medium text-base">Deadline : {date}</h2>
                     <h2 className="md:font-medium text-base">Amount : {amount}</h2>
                     <div className="text-right my-3 ">
-                        <Link to={`/campaignDetails/${_id}`} className="btn btn-neutral">Details</Link>
+                        <Link to={`/campaignDetails/${_id}`} className="btn btn-neutral">See More</Link>
                     </div>
 
                 </div>

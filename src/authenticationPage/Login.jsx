@@ -5,12 +5,13 @@ import { AuthContext } from "../provider/AuthProvider";
 
 const Login = () => {
 
-    const { userLogin, setUser } = useContext(AuthContext);
+    const { userLogin, setUser, handleGoogleLogIn } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
 
     const [error, setError] = useState(null);
     const [showPassword, setShowPassword] = useState(false);
+
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -102,6 +103,10 @@ const Login = () => {
                             <button className="btn btn-neutral rounded-none">Login</button>
                         </div>
                     </form>
+                    <div className="divider divider-warning">
+                        <button onClick={() => handleGoogleLogIn(navigate)}
+                            className=" bg-base-300 rounded-full"><img className="w-24 h-10 rounded-full" src="https://img.icons8.com/?size=100&id=17949&format=png&color=000000" alt="" /></button>
+                    </div>
                     <p className="text-center font-semibold">
                         Don't Have An Account ?{" "}
                         <Link to="/register" className="text-red-500 underline font-bold">

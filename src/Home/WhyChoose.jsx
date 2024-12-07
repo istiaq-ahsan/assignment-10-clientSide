@@ -2,7 +2,7 @@ import { IoIosCheckmarkCircle, IoMdCheckmarkCircleOutline } from "react-icons/io
 
 const WhyChoose = () => {
     return (
-        <div className="bg-gray-200 py-20">
+        <div className="bg-gray-200">
             <div className="flex flex-col lg:flex-row w-11/12 mx-auto
              justify-center items-center p-5 md:p-10 gap-5 rounded-xl">
 

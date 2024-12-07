@@ -138,9 +138,7 @@ const Register = () => {
                             <button className="btn btn-neutral rounded-none">Register</button>
                         </div>
                     </form>
-                    <div className="divider divider-warning">
-                        <button className=" bg-base-300 rounded-full"><img className="w-24 h-10 rounded-full" src="https://img.icons8.com/?size=100&id=17949&format=png&color=000000" alt="" /></button>
-                    </div>
+
                     <p className="text-center font-semibold mt-3">
                         Already Have An Account ?{" "}
                         <Link className="text-red-500 font-bold underline" to="/login">

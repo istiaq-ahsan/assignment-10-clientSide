@@ -1,11 +1,14 @@
+import FaqAnimation from "../subComponents/FaqAnimation";
 
 const Faq = () => {
     return (
         <div className='py-20 bg-gray-200'>
-            <h1 className='text-4xl md:text-5xl font-bold text-gray-800 mb-20 text-center'>Frequently Asked Question !</h1>
+            <h1 className='text-4xl md:text-5xl font-bold text-gray-800 mb-20 text-center'>
+                Frequently Asked Questions
+            </h1>
             <div className='flex flex-col md:flex-row gap-5 w-11/12 mx-auto justify-center items-center'>
                 <div className='w-full md:w-[50%]'>
-                    <img className='w-11/12 mx-auto' src="https://i.ibb.co.com/g3gDVWp/Free-Vector-Faqs-concept-illustration.jpg" alt="" />
+                    <FaqAnimation></FaqAnimation>
                 </div>
                 <div className='w-full md:w-[50%] space-y-2'>
                     <div className="collapse collapse-arrow join-item border border-gray-400">

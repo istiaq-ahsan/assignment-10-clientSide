@@ -5,6 +5,7 @@ import { AuthContext } from "../provider/AuthProvider";
 
 const Navbar = () => {
     const { user, logout } = useContext(AuthContext);
+    console.log(user);
 
     const menuItems = (
         <>
@@ -41,6 +42,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <Link to="/" className="btn btn-ghost text-xl">Crowdcube</Link>
+
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -51,8 +53,11 @@ const Navbar = () => {
                 <div>
                     {
                         user && user?.email ? (
-                            <div className="flex items-center gap-3">
+                            <div className="flex items-center gap-3 relative group">
                                 <img className="w-10 h-10 rounded-full" src={user?.photoURL} alt="" />
+                                <span className="absolute right-12 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity">
+                                    {user.displayName}
+                                </span>
                             </div>
                         ) : (
                             <NavLink to="/register" className="btn">Sign Up</NavLink>
