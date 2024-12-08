@@ -1,15 +1,46 @@
+import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import { toast } from 'react-toastify';
+import { AuthContext } from "../provider/AuthProvider";
 
 
 const CampaignDetails = () => {
+    const { user } = useContext(AuthContext);
     const projectDetails = useLoaderData();
-    const { _id, name, email, title, photo, type, amount, description, date } = projectDetails;
+    const { _id, title, photo, type, amount, description, date } = projectDetails;
+
+    const donationDetails = {
+        ...projectDetails,
+        userEmail: user.email,
+    };
+
 
     const handleDonate = () => {
         const currentDate = new Date();
         const campaignDeadline = new Date(date);
         if (campaignDeadline > currentDate) {
+            fetch("http://localhost:5000/donations", {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(donationDetails)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.insertedId) {
+                        console.log('successfully added');
+                        Swal.fire({
+                            title: 'Success!',
+                            text: 'Project added successfully',
+                            icon: 'success',
+                            confirmButtonText: 'Ok'
+                        });
+                    }
+                })
+                .catch(err => {
+                    console.log(err.message);
+                })
             toast.success("Successfully Donation Completed");
         }
         else {

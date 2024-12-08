@@ -1,8 +1,12 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../provider/AuthProvider";
 
 const MyDonatedCard = ({ donation }) => {
 
-    const { _id, title, type, amount, photo, date } = donation;
+    const { user } = useContext(AuthContext);
+
+    const { _id, email, title, type, amount, photo, date } = donation;
 
     return (
         <div className="w-11/12 mx-auto ">
