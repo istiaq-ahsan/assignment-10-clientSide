@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Login = () => {
 
@@ -18,7 +19,7 @@ const Login = () => {
 
         const email = e.target.email.value;
         const password = e.target.password.value;
-        console.log(email, password);
+
         userLogin(email, password)
             .then(result => {
 
@@ -26,11 +27,11 @@ const Login = () => {
                 setUser(user);
                 navigate(location?.state ? location.state : "/");
 
-                console.log(result?.user?.metadata?.lastSignInTime);
+
                 const lastSignInTime = result?.user?.metadata?.lastSignInTime;
                 const loginInfo = { email, lastSignInTime };
 
-                fetch("http://localhost:5000/users", {
+                fetch("https://assignment-10-server-delta-amber.vercel.app/users", {
                     method: 'PATCH',
                     headers: {
                         'content-type': 'application/json'
@@ -40,16 +41,16 @@ const Login = () => {
                     .then(res => res.json())
                     .then(data => {
                         console.log(data)
-                        // if (data.insertedId) {
-                        //     Swal.fire({
-                        //         title: 'Success!',
-                        //         text: 'Sign Up Successfully',
-                        //         icon: 'success',
-                        //         confirmButtonText: 'Ok'
-                        //     });
-                        //     navigate("/")
+                        if (data.insertedId) {
+                            Swal.fire({
+                                title: 'Success!',
+                                text: 'Sign Up Successfully',
+                                icon: 'success',
+                                confirmButtonText: 'Ok'
+                            });
+                            navigate("/")
 
-                        // }
+                        }
                     })
 
                     .catch(err => {
@@ -59,7 +60,7 @@ const Login = () => {
     }
 
     return (
-        <div className="bg-base-200">
+        <div className="bg-gray-200">
 
             <div className="flex justify-center items-center px-5 py-20">
                 <div className="card bg-base-100 w-full max-w-lg shrink-0 rounded-2xl p-5 md:p-10">

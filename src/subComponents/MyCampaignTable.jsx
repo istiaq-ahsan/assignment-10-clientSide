@@ -24,7 +24,7 @@ const MyCampaignTable = ({ campaign }) => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/project/${_id}`, {
+                fetch(`https://assignment-10-server-delta-amber.vercel.app/project/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

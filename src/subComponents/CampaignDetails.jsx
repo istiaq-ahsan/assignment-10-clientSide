@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { toast } from 'react-toastify';
 import { AuthContext } from "../provider/AuthProvider";
@@ -9,6 +9,8 @@ const CampaignDetails = () => {
     const projectDetails = useLoaderData();
     const { _id, title, photo, type, amount, description, date } = projectDetails;
 
+    const [donated, setDonated] = useState(false);
+
     const donationDetails = {
         ...projectDetails,
         userEmail: user.email,
@@ -16,10 +18,16 @@ const CampaignDetails = () => {
 
 
     const handleDonate = () => {
+
+        if (donated) {
+            toast.warning("You have already donated to this campaign.");
+            return;
+        }
+
         const currentDate = new Date();
         const campaignDeadline = new Date(date);
         if (campaignDeadline > currentDate) {
-            fetch("http://localhost:5000/donations", {
+            fetch("https://assignment-10-server-delta-amber.vercel.app/donations", {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
@@ -29,7 +37,8 @@ const CampaignDetails = () => {
                 .then(res => res.json())
                 .then(data => {
                     if (data.insertedId) {
-                        console.log('successfully added');
+                        setDonated(true);
+                        setAlreadyDonated(data.insertedId);
                         Swal.fire({
                             title: 'Success!',
                             text: 'Project added successfully',
@@ -67,7 +76,10 @@ const CampaignDetails = () => {
                         <h3 className="font-semibold">Amount : {amount}</h3>
                         <p>{description}</p>
                         <div className="card-actions justify-end">
-                            <button onClick={handleDonate} className="btn btn-neutral">Donate</button>
+                            <button onClick={handleDonate}
+                                className="btn btn-neutral"
+                                disabled={donated}
+                            >{donated ? "Already Donate" : "Donate"}</button>
                         </div>
                     </div>
                 </div>

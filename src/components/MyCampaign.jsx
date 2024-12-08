@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import MyCampaignTable from "../subComponents/MyCampaignTable";
+import { Helmet } from "react-helmet-async";
 
 const MyCampaign = () => {
     const { user } = useContext(AuthContext);
@@ -10,10 +11,10 @@ const MyCampaign = () => {
 
     useEffect(() => {
         if (user && user.email) {
-            fetch(`http://localhost:5000/project/users/${email}`)
+            fetch(`https://assignment-10-server-delta-amber.vercel.app/project/users/${email}`)
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data);
+
                     setCampaigns(data)
                 })
                 .catch(err => {
@@ -24,6 +25,9 @@ const MyCampaign = () => {
 
     return (
         <div className="bg-gray-200">
+            <Helmet>
+                <title>Crowdcube || My Campaign</title>
+            </Helmet>
             <div className="py-20 mx-3">
                 <div className="overflow-x-auto">
                     <table className="table w-11/12 mx-auto border-collapse bg-white shadow-lg">

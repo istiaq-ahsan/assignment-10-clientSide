@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -20,7 +21,7 @@ const UpdateCampaign = () => {
 
         const updateInfo = { name, email, title, type, amount, date, description, photo }
 
-        fetch(`http://localhost:5000/project/${_id}`, {
+        fetch(`https://assignment-10-server-delta-amber.vercel.app/project/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -30,7 +31,7 @@ const UpdateCampaign = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.modifiedCount > 0) {
-                    console.log('successfully added');
+
                     Swal.fire({
                         title: 'Success!',
                         text: 'Project Updated successfully',
@@ -42,6 +43,9 @@ const UpdateCampaign = () => {
     }
     return (
         <div>
+            <Helmet>
+                <title>Crowdcube || Update Campaign</title>
+            </Helmet>
             <div className="card bg-base-100 w-full shrink-0 shadow-2xl">
                 <form onSubmit={handleUpdateProject} className="card-body">
 

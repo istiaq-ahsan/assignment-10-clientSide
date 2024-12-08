@@ -7,7 +7,7 @@ const ExploreProjects = () => {
     const [allCampaign, setAllCampaign] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:5000/project")
+        fetch("https://assignment-10-server-delta-amber.vercel.app/project")
             .then(res => res.json())
             .then(data => {
                 const currentDate = new Date();
@@ -17,7 +17,7 @@ const ExploreProjects = () => {
                 });
 
                 setAllCampaign(runningCampaigns.slice(0, 6));
-                console.log(allCampaign.length);
+
             })
     }, [])
 

@@ -24,7 +24,7 @@ const Router = createBrowserRouter([
             {
                 path: "allCampaign",
                 element: <AllCampaign></AllCampaign>,
-                loader: () => fetch("http://localhost:5000/project")
+                loader: () => fetch("https://assignment-10-server-delta-amber.vercel.app/project")
             },
             {
                 path: "myCampaign",
@@ -49,14 +49,14 @@ const Router = createBrowserRouter([
                 element: <PrivateRouter>
                     <CampaignDetails></CampaignDetails>
                 </PrivateRouter>,
-                loader: ({ params }) => fetch(`http://localhost:5000/project/${params.id}`)
+                loader: ({ params }) => fetch(`https://assignment-10-server-delta-amber.vercel.app/project/${params.id}`)
             },
             {
                 path: "updateCoffee/:id",
                 element: <PrivateRouter>
                     <UpdateCampaign></UpdateCampaign>
                 </PrivateRouter>,
-                loader: ({ params }) => fetch(`http://localhost:5000/project/${params.id}`)
+                loader: ({ params }) => fetch(`https://assignment-10-server-delta-amber.vercel.app/project/${params.id}`)
             },
             {
                 path: "login",

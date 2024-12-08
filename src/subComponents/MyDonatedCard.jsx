@@ -6,7 +6,7 @@ const MyDonatedCard = ({ donation }) => {
 
     const { user } = useContext(AuthContext);
 
-    const { _id, email, title, type, amount, photo, date } = donation;
+    const { _id, name, email, title, type, amount, photo, date } = donation;
 
     return (
         <div className="w-11/12 mx-auto ">
@@ -19,16 +19,16 @@ const MyDonatedCard = ({ donation }) => {
                     </figure>
                 </div>
                 <div className="md:card-body h-[50%] w-11/12 mx-auto">
-                    <div className="flex justify-between my-3">
-                        <div className="badge badge-outline p-3">{type}</div>
-                        <div className="badge badge-outline p-3">{date}</div>
+                    <div className="my-3">
+                        <div className="badge badge-outline p-3">Owner : {name}</div>
+
                     </div>
                     <h2 className="card-title text-base md:text-lg font-bold w-full truncate">{title}</h2>
 
-                    <h2 className="md:font-medium text-base md:text-lg">Amount : {amount}</h2>
-                    <div className="text-right my-3 ">
-                        <NavLink to={`/campaignDetails/${_id}`} className="btn btn-neutral">Details</NavLink>
-                    </div>
+                    <h2 className="md:font-medium text-base">Type : {type}</h2>
+                    <h2 className="md:font-medium text-base">Deadline : {date}</h2>
+                    <h2 className="md:font-medium text-base">Amount : {amount}</h2>
+
 
                 </div>
             </div>

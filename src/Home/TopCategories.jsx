@@ -23,10 +23,11 @@ const TopCategories = () => {
     return (
         <div className="py-20 bg-gray-200">
             <div className="w-11/12 mx-auto">
-                <div className="flex flex-col gap-5 md:flex-row justify-center items-center text-black">
-                    <div data-aos="zoom-in-left"
-                        data-aos-easing="ease-out-cubic"
-                        data-aos-duration="1000" className="md:w-[50%] space-y-5 text-center md:text-start
+                <div data-aos="zoom-in"
+                    data-aos-easing="ease-out-cubic"
+                    data-aos-duration="1000"
+                    className="flex flex-col gap-5 md:flex-row justify-center items-center text-black">
+                    <div className="md:w-[50%] space-y-5 text-center md:text-start
                     ">
                         <h3 className="text-xl">Which Category Interest You ?</h3>
                         <h1 className="text-5xl md:text-6xl font-bold">Top Categories</h1>
@@ -36,9 +37,7 @@ const TopCategories = () => {
                             startups, your contribution makes a difference. Join the
                             movement and help ideas come to life!</p>
                     </div>
-                    <div onClick={handleNavigate} data-aos="zoom-in-right"
-                        data-aos-easing="ease-out-cubic"
-                        data-aos-duration="1000"
+                    <div onClick={handleNavigate}
                         className="md:w-[50%]
                         grid grid-cols-2 lg:grid-cols-3 gap-1 text-black text-center cursor-pointer
                     ">

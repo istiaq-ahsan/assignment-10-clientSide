@@ -3,6 +3,7 @@ import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Swal from 'sweetalert2'
 import { AuthContext } from "../provider/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 
 const AddNewCampaign = () => {
@@ -22,9 +23,9 @@ const AddNewCampaign = () => {
         const photo = e.target.photo.value;
 
         const newProjectInfo = { name, email, title, type, amount, date, description, photo }
-        console.log(newProjectInfo);
 
-        fetch("http://localhost:5000/project", {
+
+        fetch("https://assignment-10-server-delta-amber.vercel.app/project", {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -34,7 +35,7 @@ const AddNewCampaign = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.insertedId) {
-                    console.log('successfully added');
+
                     Swal.fire({
                         title: 'Success!',
                         text: 'Project added successfully',
@@ -48,6 +49,9 @@ const AddNewCampaign = () => {
 
     return (
         <div className="bg-gray-200 py-20">
+            <Helmet>
+                <title>Crowdcube || Add New Campaign</title>
+            </Helmet>
             <div className="w-11/12 md:w-4/5 mx-auto">
 
                 <div className="text-center text-gray-900">

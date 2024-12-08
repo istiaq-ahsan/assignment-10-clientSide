@@ -5,7 +5,7 @@ import { AuthContext } from "../provider/AuthProvider";
 
 const Navbar = () => {
     const { user, logout } = useContext(AuthContext);
-    console.log(user);
+
 
     const menuItems = (
         <>
@@ -37,7 +37,8 @@ const Navbar = () => {
                     </div>
                     <ul
                         tabIndex={0}
-                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                        className="menu menu-sm dropdown-content 
+                        bg-gray-800 rounded-box z-[1] mt-3 w-52 p-2 shadow">
                         {menuItems}
                     </ul>
                 </div>

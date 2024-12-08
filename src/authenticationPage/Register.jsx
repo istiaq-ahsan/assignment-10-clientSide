@@ -31,14 +31,14 @@ const Register = () => {
             .then(result => {
 
                 const user = result.user;
-                console.log(user);
+
                 setUser(user);
 
                 updateUserData({ displayName: name, photoURL: photo })
 
 
                 const newUser = { name, email }
-                fetch("http://localhost:5000/users", {
+                fetch("https://assignment-10-server-delta-amber.vercel.app/users", {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -47,7 +47,7 @@ const Register = () => {
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log(data)
+
                         if (data.insertedId) {
                             Swal.fire({
                                 title: 'Success!',

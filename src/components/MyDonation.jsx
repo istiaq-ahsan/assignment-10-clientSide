@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import MyDonatedCard from "../subComponents/MyDonatedCard";
+import { Helmet } from "react-helmet-async";
 
 const MyDonation = () => {
 
@@ -11,10 +12,10 @@ const MyDonation = () => {
 
     useEffect(() => {
         if (user && user.email) {
-            fetch("http://localhost:5000/donations")
+            fetch("https://assignment-10-server-delta-amber.vercel.app/donations")
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data);
+
                     const userDonations = data.filter(
                         (donation) => donation.userEmail == user.email
                     );
@@ -28,6 +29,9 @@ const MyDonation = () => {
 
     return (
         <div className="bg-gray-200">
+            <Helmet>
+                <title>Crowdcube || My Donation</title>
+            </Helmet>
             <div className="w-4/5 mx-auto py-20 grid grid-cols-1 
             md:grid-cols-2 lg:grid-cols-3 gap-3">
                 {

@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import Banner from "../Home/Banner";
 import ExploreProjects from "../Home/ExploreProjects";
 import Faq from "../Home/Faq";
@@ -8,6 +9,9 @@ import WhyChoose from "../Home/WhyChoose";
 const Home = () => {
     return (
         <div>
+            <Helmet>
+                <title>Crowdcube || Home</title>
+            </Helmet>
             <Banner></Banner>
             <Slider></Slider>
             <TopCategories></TopCategories>
