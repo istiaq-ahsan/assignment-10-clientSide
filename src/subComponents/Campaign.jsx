@@ -21,9 +21,11 @@ const Campaign = ({ project }) => {
           <h2 className="md:font-medium text-xs">Type : {type}</h2>
           <h2 className="md:font-medium text-xs">Deadline : {date}</h2>
           <h2 className="md:font-medium text-xs">Amount : {amount}</h2>
-          <Link to={`/campaignDetails/${_id}`} className="btn btn-outline">
-            See More
-          </Link>
+          <div className="py-2 md:py-0">
+            <Link to={`/campaignDetails/${_id}`} className="btn btn-outline">
+              See More
+            </Link>
+          </div>
         </div>
       </div>
     </div>
