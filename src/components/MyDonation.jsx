@@ -11,7 +11,7 @@ const MyDonation = () => {
 
   useEffect(() => {
     if (user && user.email) {
-      fetch("http://localhost:5000/donations")
+      fetch("https://assignment-10-server-delta-amber.vercel.app/donations")
         .then((res) => res.json())
         .then((data) => {
           const userDonations = data.filter(
@@ -31,8 +31,8 @@ const MyDonation = () => {
         <title>Crowdcube || My Donation</title>
       </Helmet>
       <div
-        className="w-4/5 mx-auto py-20 grid grid-cols-1 
-            md:grid-cols-2 lg:grid-cols-3 gap-3"
+        className="w-11/12 mx-auto py-20 grid grid-cols-1 
+            md:grid-cols-2 lg:grid-cols-4 gap-3"
       >
         {filterDonations.map((donation) => (
           <MyDonatedCard key={donation._id} donation={donation}></MyDonatedCard>

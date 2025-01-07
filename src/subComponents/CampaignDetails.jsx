@@ -24,7 +24,7 @@ const CampaignDetails = () => {
     const currentDate = new Date();
     const campaignDeadline = new Date(date);
     if (campaignDeadline > currentDate) {
-      fetch("http://localhost:5000/donations", {
+      fetch("https://assignment-10-server-delta-amber.vercel.app/donations", {
         method: "POST",
         headers: {
           "content-type": "application/json",

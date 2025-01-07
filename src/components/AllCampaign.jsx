@@ -20,7 +20,7 @@ const AllCampaign = () => {
   const fetchAllCampaign = async () => {
     try {
       const { data } = await axios.get(
-        `http://localhost:5000/project?sort=${sort}`
+        `https://assignment-10-server-delta-amber.vercel.app/project?sort=${sort}`
       );
       setLoadedAllProject(data); // Update state with fetched data
       setLoading(false); // Mark loading as complete

@@ -67,7 +67,9 @@ const Router = createBrowserRouter([
           </PrivateRouter>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/project/${params.id}`),
+          fetch(
+            `https://assignment-10-server-delta-amber.vercel.app/project/${params.id}`
+          ),
       },
       {
         path: "updateCoffee/:id",
@@ -77,7 +79,9 @@ const Router = createBrowserRouter([
           </PrivateRouter>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/project/${params.id}`),
+          fetch(
+            `https://assignment-10-server-delta-amber.vercel.app/project/${params.id}`
+          ),
       },
       {
         path: "login",

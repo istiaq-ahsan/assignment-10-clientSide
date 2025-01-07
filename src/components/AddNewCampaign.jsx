@@ -31,7 +31,7 @@ const AddNewCampaign = () => {
       photo,
     };
 
-    fetch("http://localhost:5000/project", {
+    fetch("https://assignment-10-server-delta-amber.vercel.app/project", {
       method: "POST",
       headers: {
         "content-type": "application/json",
