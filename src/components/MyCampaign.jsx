@@ -4,59 +4,57 @@ import MyCampaignTable from "../subComponents/MyCampaignTable";
 import { Helmet } from "react-helmet-async";
 
 const MyCampaign = () => {
-    const { user } = useContext(AuthContext);
-    const [campaigns, setCampaigns] = useState([]);
+  const { user } = useContext(AuthContext);
+  const [campaigns, setCampaigns] = useState([]);
 
-    const email = user.email
+  const email = user.email;
 
-    useEffect(() => {
-        if (user && user.email) {
-            fetch(`https://assignment-10-server-delta-amber.vercel.app/project/users/${email}`)
-                .then(res => res.json())
-                .then(data => {
+  useEffect(() => {
+    if (user && user.email) {
+      fetch(`http://localhost:5000/project/users/${email}`)
+        .then((res) => res.json())
+        .then((data) => {
+          setCampaigns(data);
+        })
+        .catch((err) => {
+          console.log(err.message);
+        });
+    }
+  }, [user]);
 
-                    setCampaigns(data)
-                })
-                .catch(err => {
-                    console.log(err.message);
-                })
-        }
-    }, [user])
-
-    return (
-        <div className="bg-gray-200">
-            <Helmet>
-                <title>Crowdcube || My Campaign</title>
-            </Helmet>
-            <div className="py-20 mx-3">
-                <div className="overflow-x-auto">
-                    <table className="table w-11/12 mx-auto border-collapse bg-white shadow-lg">
-                        <thead className="bg-gray-700 text-white">
-                            <tr className="text-center">
-                                <th className="px-4 py-3 text-sm font-semibold">Title</th>
-                                <th className="px-4 py-3 text-sm font-semibold">Type</th>
-                                <th className="px-4 py-3 text-sm font-semibold">Amount</th>
-                                <th className="px-4 py-3 text-sm font-semibold">Deadline</th>
-                                <th className="px-4 py-3 text-sm font-semibold">View</th>
-                                <th className="px-4 py-3 text-sm font-semibold">Update</th>
-                                <th className="px-4 py-3 text-sm font-semibold">Delete</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                            {
-                                campaigns.map(campaign => <MyCampaignTable key={campaign._id}
-                                    campaign={campaign}
-                                ></MyCampaignTable>)
-                            }
-
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+  return (
+    <div className="bg-gray-200">
+      <Helmet>
+        <title>Crowdcube || My Campaign</title>
+      </Helmet>
+      <div className="py-20 mx-3">
+        <div className="overflow-x-auto">
+          <table className="table w-11/12 mx-auto border-collapse bg-white shadow-lg">
+            <thead className="bg-gray-700 text-white">
+              <tr className="text-center">
+                <th className="px-4 py-3 text-sm font-semibold">Title</th>
+                <th className="px-4 py-3 text-sm font-semibold">Type</th>
+                <th className="px-4 py-3 text-sm font-semibold">Amount</th>
+                <th className="px-4 py-3 text-sm font-semibold">Deadline</th>
+                <th className="px-4 py-3 text-sm font-semibold">View</th>
+                <th className="px-4 py-3 text-sm font-semibold">Update</th>
+                <th className="px-4 py-3 text-sm font-semibold">Delete</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {campaigns.map((campaign) => (
+                <MyCampaignTable
+                  key={campaign._id}
+                  campaign={campaign}
+                ></MyCampaignTable>
+              ))}
+            </tbody>
+          </table>
         </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default MyCampaign;
